@@ -1,0 +1,34 @@
+import requests
+from urllib.parse import quote
+
+def translate_text(text, source, target):
+    url = (
+        "https://api.mymemory.translated.net/get?q="
+        + quote(text)
+        + "&langpair="
+        + source
+        + "|"
+        + target
+    )
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        return data["responseData"]["translatedText"]
+    else:
+        return "Translation failed."
+
+
+print("================================")
+print("   LANGUAGE TRANSLATION TOOL")
+print("================================")
+
+text = input("Enter text: ")
+source = input("Source language (en/hi/fr): ")
+target = input("Target language (en/hi/fr): ")
+
+result = translate_text(text, source, target)
+
+print("\nTranslated Text:")
+print(result)
