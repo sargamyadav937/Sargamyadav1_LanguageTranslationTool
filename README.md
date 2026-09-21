@@ -1,11 +1,4 @@
-# Sargamyadav1_LanguageTranslationTool
-language Translation Tool
-The Structure
-CodeAlpha_LanguageTranslationTool/
-│
-├── main.py
-├── requirements.txt
-└── README.md
+
 
 main. py
 
